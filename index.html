@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+<button class="goArray">Сформировать массив</button>
+<div class="result array"></div>
+<div class="result minNumber"></div>
+<div class="result maxNumber"></div>
+<div class="result sumNumber"></div>
+<div class="result averageNumber"></div>
+<div class="result multiplyNumber"></div>
+
+<script>
+
+const makeArrayBtn = document.querySelector('.goArray');
+makeArrayBtn.addEventListener('click', () => {
+    document.querySelector('.array').innerHTML = '';
+    document.querySelector('.minNumber').innerHTML = '';
+    document.querySelector('.maxNumber').innerHTML = '';
+    document.querySelector('.sumNumber').innerHTML = '';
+    document.querySelector('.averageNumber').innerHTML = '';
+    document.querySelector('.multiplyNumber').innerHTML = '';
+
+
+let arr = [];
+
+for (let i=0; i<=10; i++) {
+arr.push(((Math.random() < 0.5) ? -1 : 1) * (Math.round(Math.random() * 10)));
+
+};
+
+
+console.log(...arr);
+
+let arrString = arr.join(" ");
+
+let minNumber = Math.min(...arr);
+console.log(minNumber);
+
+let maxNumber = Math.max(...arr);
+console.log(maxNumber);
+
+let sumNumber = arr.reduce((a,b) => (a + b));
+console.log(sumNumber);
+
+let averageNumber = Math.round(sumNumber / arr.length);
+console.log(averageNumber);
+
+let multiplyNumber = arr.reduce((a,b) => (a * b));
+console.log(multiplyNumber);
+
+document.querySelector('.array').innerHTML += `Массив: ${arr}`;
+document.querySelector('.minNumber').innerHTML += `Минимальное значение: ${minNumber}`;
+document.querySelector('.maxNumber').innerHTML += `Максимальное значение: ${maxNumber}`;
+document.querySelector('.sumNumber').innerHTML += `Среднее арифметическое: ${sumNumber}`;
+document.querySelector('.averageNumber').innerHTML += `Сумма чисел: ${averageNumber}`;
+document.querySelector('.multiplyNumber').innerHTML += `Произведение чисел: ${multiplyNumber}`;
+
+})
+
+
+</script>
+</body>
+
+</html>
